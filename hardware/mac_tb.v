@@ -30,7 +30,7 @@ function [3:0] w_bin ;
   input integer  weight ;
   begin
 
-    if (weight>-1)
+    if (weight>-1)begin 
      w_bin[3] = 0;
     else begin
      w_bin[3] = 1;
@@ -62,17 +62,27 @@ endfunction
 
 
 function [3:0] x_bin ;
-
-...
+  input integer activation
+	begin
+	x_bin[0] = (activation >= 8) ? 1'b1 : 1'b0;
+	x_bin[1] = (activation >= 4) ? 1'b1 : 1'b0;
+	x_bin[2] = (activation >= 2) ? 1'b1 : 1'b0;
+	x_bin[3] = (activation >= 1) ? 1'b1 : 1'b0;
+	end
 
 endfunction
 
 
 // Below function is for verification
 function [psum_bw-1:0] mac_predicted;
-  
-...
-
+  input signed [bw-1:0] a,b;
+  input signed [psum_bw-1:0] c;
+  reg signed [2*bw-1:0] product;
+  reg signed [psum_bw-1:0] psum;
+    begin 
+   	 product = a * b;
+   	 mac_predicted =  product + c;
+    end 
 endfunction
 
 
