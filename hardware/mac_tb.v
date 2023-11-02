@@ -79,9 +79,10 @@ function [psum_bw-1:0] mac_predicted;
   input signed [psum_bw-1:0] c;
   reg signed [2*bw-1:0] product;
   reg signed [psum_bw-1:0] psum;
-    begin 
+    begin
    	 product = a * b;
-   	 mac_predicted =  product + c;
+   	 psum = c;
+	mac_predicted = psum +product
     end 
 endfunction
 
