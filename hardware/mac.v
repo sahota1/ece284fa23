@@ -6,5 +6,8 @@ parameter bw = 4;
 parameter psum_bw = 16;
 
 ...
+  out = a*b + c
+
+  out
 
 endmodule
