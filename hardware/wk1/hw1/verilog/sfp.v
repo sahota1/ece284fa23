@@ -17,6 +17,7 @@ output  signed [psum_bw-1:0] out;
 
 reg  signed [psum_bw-1:0] psum_q;
 
+//output reg out
 // Your code goes here
 assign out = psumq_q;
   always @ (posedge clk) begin
