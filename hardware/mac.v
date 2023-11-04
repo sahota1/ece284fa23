@@ -12,6 +12,6 @@ parameter psum_bw = 16;
   
   output reg signed [psum_bw-1:0] out
 
-  out = a*b + c
+  out = a*b +c
 
 endmodule
