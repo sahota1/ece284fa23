@@ -63,11 +63,13 @@ endfunction
 
 function [3:0] x_bin ;
   input integer activation
-	begin
-	x_bin[0] = (activation >= 8) ? 1'b1 : 1'b0;
+	
+	begin 
+	x_bin[3] = activation[3];
+	activation = (activation >= 8) ? -activation : activation;
 	x_bin[1] = (activation >= 4) ? 1'b1 : 1'b0;
 	x_bin[2] = (activation >= 2) ? 1'b1 : 1'b0;
-	x_bin[3] = (activation >= 1) ? 1'b1 : 1'b0;
+	// x_bin[3] = (activation >= 1) ? 1'b1 : 1'b0;
 	end
 
 endfunction
